@@ -1,5 +1,12 @@
 h1 Editing project
 
+select onChange="location.href=value;"
+    = @projects.each do |project|
+        - if project.id == @project.id
+            option selected="selected" value="/projects/#{project.id}/edit" = project.name
+        - else 
+            option value="/projects/#{project.id}/edit" = project.name
+
 == render 'form'
 
 = link_to 'Show', @project
